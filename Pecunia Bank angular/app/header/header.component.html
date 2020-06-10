@@ -1,0 +1,55 @@
+
+
+    <meta charset="UTF-8">
+    <meta name="description" content="PONIGYM Template">
+    <meta name="keywords" content="PONIGYM, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PECUNIA BANK SYSTEM | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="assets\ponigym\css\bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets\ponigym\css\owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="assets\ponigym\css\magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="assets\ponigym\css\slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="assets\ponigym\css\style.css" type="text/css">
+    <body>
+    <header class="header-section">
+      <div class="container">
+    
+          <div class="nav-menu">
+              <nav class="mainmenu mobile-menu">
+                  <ul>
+                          <li item-width="20px"> <h1><a  routerLink="./about-us.html" >PECUNIA BANK SYSTEM</a></h1></li>
+                      <li ><a routerLink="/home">Home</a></li>
+
+          
+                      <li><a  *ngIf='!isLoggedIn()'
+                        routerLink="/login">Services</a></li>
+                      
+                     
+                      <li><a  routerLink="./contact.html">Contacts</a></li>
+                      <li><a  routerLink="./blog.html">Blog</a>
+                          <ul  class="dropdown">
+                              <li><a routerLink="blog-details.html">Blog Details</a></li>
+                          </ul>
+                      </li>
+                      <li><a *ngIf='!isLoggedIn()' routerLink="/login">Login</a>
+                          
+                      </li>
+                      <li><a *ngIf='isLoggedIn()' (click)='isLoggedout()'>Logout</a></li>
+
+                  </ul>
+              </nav>
+              <div class="nav-right search-switch">
+                  <i class="ti-search"></i>
+              </div>
+          </div>
+          <div id="mobile-menu-wrap"></div>
+      </div>
+  </header>
+</body>

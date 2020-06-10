@@ -1,0 +1,62 @@
+
+<div id="bg">
+<div class="alert alert-success mb-0" *ngIf='message' (click)='deleteMessage()'>{{message}}</div>
+<div class="alert alert-danger mb-0" *ngIf='error' (click)='deleteMessage()'>{{error}}</div>
+<br>
+<br>
+<br>
+<br><br>
+
+<input type="search" name="search" placeholder="Search by customer name" pattern="[a-zA-Z]+" class="form-control col-md-4 offset-4 mt-3 mb-3" [(ngModel)]='search'>
+
+<div class="container col-md-0 ml-2">
+<table  class="table table-condensed mt-6 table ml-2  table-hover jumbotron" >
+<thead class="thead-dark">
+  <tr>
+      <th class="col-sm-1"  scope="col">AccId</th>
+      <th scope="col">City</th>
+      <th scope="col">Country</th>
+      <th scope="col">Aadhar</th>
+      <th scope="col">Address</th>
+      <th scope="col">ContactNo</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Gender</th>
+      <th scope="col">PAN</th>
+      <th scope="col">Name</th>
+      <th scope="col">state</th>
+      <th scope="col">zipCode</th> 
+      <th scope="col">Update</th> 
+      <th scope="col">Delete</th> 
+  </tr>
+</thead>
+<tbody>
+    <tr *ngFor='let account of accounts | filterAccount:search ;index as i'>
+        <td class="col-sm-1">{{account.accountId}}</td>
+        <td>{{account.city}}</td>
+        <td>{{account.country}}</td>
+        <td>{{account.customerAadhar}}</td>
+        <td>{{account.customerAddress}}</td>
+        <td>{{account.customerContactNo}}</td>
+        <td>{{account.customerDOB}}</td>
+        <td>{{account.customerGender}}</td>
+        <td>{{account.customerName}}</td>
+        <td>{{account.customerPAN}}</td>
+        <td>{{account.state}}</td>
+        <td>{{account.zipCode}}</td>
+        <!-- <td>
+          <button class="btn-outline-secondary" style="border-radius: 5px;"  (click)='selectCustomer(customer)'>
+            Update
+          </button>
+        </td> -->
+        <td>  <button class="btn btn-outline-success" (click)='selectAccount(account)'>
+          Update
+      </button></td>
+
+        <td>   <button class="btn btn-outline-dark" (click)='deleteAccounts(account)'>Delete</button></td>
+      </tr>
+  
+</tbody>
+</table>
+</div>
+
+

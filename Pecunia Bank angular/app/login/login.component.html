@@ -1,0 +1,44 @@
+
+        <br>
+        <br>
+        <br>
+        
+<div class="alert alert-success mb-0" *ngIf='message'>{{message}}</div>
+<div class="alert alert-danger mb-0" *ngIf='error'>{{error}}</div>
+
+<div class="col-md-4 offset-md-4 mt-4">
+    <h4 class="text-center"> LOGIN</h4><br>
+        <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'>
+            <div class="form-group">
+                <label for="userName">Email: </label>
+                <input type="email" name="userName" id="userName" #userName="ngModel" ngModel class="form-control"
+                    pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
+                <div class="alert alert-danger" *ngIf='userName.touched && userName.invalid'>
+                    <div *ngIf='userName.errors.required'>
+                        *This field is mandatory
+                    </div>
+                    <div *ngIf='userName.errors.pattern'>
+                        *(ex : john@gmail.com)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" name="password" id="password" #password="ngModel" ngModel required
+                     class="form-control">
+                <div class="alert alert-danger" *ngIf='password.touched && password.invalid'>
+                    <div *ngIf='password.errors.required'>
+                        *This field is mandatory
+                    </div>
+                    
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-block " style="background-color: rgba(124, 39, 51, 0.993); color:white;" [disabled]='loginForm.invalid'>
+              LOGIN
+            </button>
+
+        </form>
+        
+    </div>
+

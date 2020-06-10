@@ -1,0 +1,216 @@
+<div class="background mb-4">
+
+<div class="alert alert-success mb-0" *ngIf='message'>{{message}}</div>
+<div class="alert alert-danger mb-0" *ngIf='error'>{{error}}</div>
+<br>
+<br>
+<br><br>
+<br>
+
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addAccountForm='ngForm' (ngSubmit)='addAccount(addAccountForm)'>
+        
+            <div class="form-group">
+                    <label for="accountId"> Customer Account No : </label>
+                    <input type="text" name="accountId" id="accountId" #accountId='ngModel' ngModel
+                        required pattern="[0-9]{12}" maxlength="12" class="form-control">
+                    <div *ngIf='accountId.touched && accountId.invalid'>
+                        <div class="alert alert-danger" *ngIf='accountId.errors.pattern'>
+                            enter valid account Number(12 digits)
+                        </div>
+                        <div class="alert alert-danger" *ngIf='accountId.errors.required'>
+                            This field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='accountId.errors.maxlength'>
+                            Maxlength of 12 required
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="city">City : </label>
+                        <input type="text" name="city" id="city" #city='ngModel' ngModel
+                            class="form-control" required minlength="3" pattern="[a-zA-Z]+">
+                        <div *ngIf='city.touched && city.invalid'>
+                            <div class="alert alert-danger" *ngIf='city.errors.required'>
+                                This field is mandatory***
+                            </div>
+                            <div class="alert alert-danger" *ngIf='city.errors.minlength'>
+                                Minlength of 3 required***
+                            </div>
+                            <div class="alert alert-danger" *ngIf='city.errors.pattern'>
+                                enter valid city name***
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="country">Country : </label>
+                            <input type="text" name="country" id="country" #country='ngModel' ngModel
+                                class="form-control" required minlength="4" pattern="[a-zA-Z]+">
+                            <div *ngIf='country.touched && country.invalid'>
+                                <div class="alert alert-danger" *ngIf='country.errors.required'>
+                                    This field is mandatory***
+                                </div>
+                                <div class="alert alert-danger" *ngIf='country.errors.minlength'>
+                                    Minlength of 4 required***
+                                </div>
+                                <div class="alert alert-danger" *ngIf='country.errors.pattern'>
+                                    enter valid country name***
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="customerAadhar">Aadhar No : </label>
+                                <input type="text" name="customerAadhar" id="customerAadhar" #customerAadhar='ngModel' ngModel required class="form-control"
+                                    minlength="12" maxlength="12" pattern="[0-9]{1,12}">
+                                <div *ngIf='customerAadhar.touched && customerAadhar.invalid'>
+                                    <div class="alert alert-danger" *ngIf='customerAadhar.errors.pattern'>
+                                        please enter only digits***
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='customerAadhar.errors.required'>
+                                        This field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='customerAadhar.errors.minlength'>
+                                        Please enter 12 digit aadhar No***
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                    <label for="customerAddress">Address : </label>
+                                    <input type="text" name="customerAddress" id="customerAddress" #customerAddress='ngModel' ngModel required
+                                        class="form-control" pattern="^[#.0-9a-zA-Z\s,-]+$"  minlength="10" maxlength="50" >
+                                    <div *ngIf='customerAddress.touched && customerAddress.invalid'>
+                                        <div class="alert alert-danger" *ngIf='customerAddress.errors.required'>
+                                            This field is mandatory***
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf='customerAddress.errors.pattern'>
+                                            Allows only # and - (special Characters)
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf='customerAddress.errors.minlength'>
+                                            Please enter valid Address***
+                                        </div>
+                        
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="customerContactNo"> Customer Contact No : </label>
+                                        <input type="text" name="customerContactNo" id="customerContactNo" #customerContactNo='ngModel' ngModel
+                                            required pattern="[0-9]{10}" maxlength="10" class="form-control">
+                                        <div *ngIf='customerContactNo.touched && customerContactNo.invalid'>
+                                            <div class="alert alert-danger" *ngIf='customerContactNo.errors.pattern'>
+                                                enter valid phone Number(10 digits)
+                                            </div>
+                                            <div class="alert alert-danger" *ngIf='customerContactNo.errors.required'>
+                                                This field is mandatory
+                                            </div>
+                                            <div class="alert alert-danger" *ngIf='customerContactNo.errors.maxlength'>
+                                                Maxlength of 10 required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="customerDOB">Date Of Birth : </label>
+                                            <input type="date" min="1960-01-01" max="2020-06-06" name="customerDOB" id="customerDOB" #customerDOB='ngModel' ngModel required
+                                                class="form-control" >
+                                            <div *ngIf='customerDOB.touched && customerDOB.invalid'>
+                                                <div class="alert alert-danger" *ngIf='customerDOB.errors.required'>
+                                                    This field is mandatory
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <label for="customerGender">Gender : </label>
+                                                <br>
+                                                <select name="customerGender" #loanType="ngModel" ngModel id="customerGender"
+                                                    style="height: 38px; width: 100%;">
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                                <!-- <div *ngIf='customerGender.touched && customerGender.invalid'>
+                                                        <div class="alert alert-danger" *ngIf='customerGender.errors.required'>
+                                                            This field is mandatory
+                                                        </div>
+                                                    </div> -->
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="customerName">Customer Name : </label>
+                                                    <input type="text" name="customerName" id="customerName" #customerName='ngModel' ngModel
+                                                        class="form-control" required minlength="3" pattern="[a-zA-Z]+">
+                                                    <div *ngIf='customerName.touched && customerName.invalid'>
+                                                        <div class="alert alert-danger" *ngIf='customerName.errors.required'>
+                                                            This field is mandatory***
+                                                        </div>
+                                                        <div class="alert alert-danger" *ngIf='customerName.errors.minlength'>
+                                                            Minlength of 4 required***
+                                                        </div>
+                                                        <div class="alert alert-danger" *ngIf='customerName.errors.pattern'>
+                                                            enter valid customer name***
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="customerPAN">PanId : </label>
+                                                        <input type="text" name="customerPAN" id="customerPAN" #customerPAN='ngModel' ngModel required
+                                                            class="form-control" minlength="8" maxlength="8" required>
+                                                        <div *ngIf='customerPAN.touched && customerPAN.invalid'>
+                                                            <div class="alert alert-danger" *ngIf='customerPAN.errors.pattern'>
+                                                                please enter only 8 digits***
+                                                            </div>
+                                                            <div class="alert alert-danger" *ngIf='customerPAN.errors.required'>
+                                                                This field is mandatory
+                                                            </div>
+                                                            <div class="alert alert-danger" *ngIf='customerPAN.errors.minlength'>
+                                                                Please enter 8 digit panId***
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label for="state">State : </label>
+                                                            <input type="text" name="state" id="state" #state='ngModel' ngModel
+                                                                class="form-control" required minlength="3" pattern="[a-zA-Z]+">
+                                                            <div *ngIf='state.touched && state.invalid'>
+                                                                <div class="alert alert-danger" *ngIf='state.errors.required'>
+                                                                    This field is mandatory***
+                                                                </div>
+                                                                <div class="alert alert-danger" *ngIf='state.errors.minlength'>
+                                                                    Minlength of 3 required***
+                                                                </div>
+                                                                <div class="alert alert-danger" *ngIf='state.errors.pattern'>
+                                                                    enter valid state***
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label for="zipCode"> ZipCode : </label>
+                                                                <input type="text" name="zipCode" id="zipCode" #zipCode='ngModel' ngModel
+                                                                    required pattern="[0-9]{6}" maxlength="6" class="form-control">
+                                                                <div *ngIf='zipCode.touched && zipCode.invalid'>
+                                                                    <div class="alert alert-danger" *ngIf='zipCode.errors.pattern'>
+                                                                        enter valid zipcode(6 digits)
+                                                                    </div>
+                                                                    <div class="alert alert-danger" *ngIf='zipCode.errors.required'>
+                                                                        This field is mandatory
+                                                                    </div>
+                                                                    <div class="alert alert-danger" *ngIf='zipCode.errors.maxlength'>
+                                                                        Maxlength of 6 required
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+        
+        
+       
+        <br>
+        <button class="btn btn-block " style="background-color: rgba(124, 39, 51, 0.993); color:white;"  [disabled]='addAccountForm.invalid'>
+                Add Account
+              </button>
+        
+    </form>
+</div>
+</div>
+
+ 
